@@ -280,6 +280,10 @@ function editBtnPost(e) {
 }
 
 function profileBtn(id) {
+  if (id === undefined) {
+    const info = JSON.parse(sessionStorage.getItem("user"));
+    id = info.id;
+  }
   if (sessionStorage.getItem("token")) {
     window.location = `profile.html?userId=${id}`;
   } else 
